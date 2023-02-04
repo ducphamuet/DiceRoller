@@ -1,21 +1,27 @@
 package com.example.diceroller
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import com.example.diceroller.units.Dice
 
-class MainActivity : AppCompatActivity() {
+
+abstract class MainActivity : AppCompatActivity() {
+    private val mScoreText: TextView = findViewById(R.id.score_text)
+    private val mRollBtn: Button = findViewById(R.id.roll_btn)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val scoreText: TextView = findViewById(R.id.score_text)
-        val rollBtn: Button = findViewById(R.id.roll_btn)
-        rollBtn.setOnClickListener {
-            val range: IntRange = 1..6
-            var score: Int = range.random();
-            scoreText.text = score.toString()
+        mRollBtn.setOnClickListener {
+            rollDice()
         }
+    }
+
+    private fun rollDice() {
+        val dice = Dice(6)
+        val score: Int = dice.roll()
+        mScoreText.text = score.toString()
     }
 }
