@@ -1,23 +1,20 @@
 package com.example.diceroller
 
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.diceroller.units.Dice
+import kotlinx.android.synthetic.main.activity_main.*
 
 
-abstract class MainActivity : AppCompatActivity() {
-    private val mDiceImg: ImageView = findViewById(R.id.diceImage)
-    private val mRollBtn: Button = findViewById(R.id.roll_btn)
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        mRollBtn.setOnClickListener {
+        rollBtn.setOnClickListener {
             rollDice()
         }
+        rollDice()
     }
 
     private fun rollDice() {
@@ -33,7 +30,7 @@ abstract class MainActivity : AppCompatActivity() {
 
             else -> R.drawable.dice_6
         }
-        mDiceImg.setImageResource(imgRes);
-        mDiceImg.contentDescription = score.toString()
+        diceImage.setImageResource(imgRes);
+        diceImage.contentDescription = score.toString()
     }
 }

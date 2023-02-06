@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/diceImage"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="@dimen/dice_image_width"
+        android:layout_height="@dimen/dice_image_height"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -17,9 +17,10 @@
         android:scaleType="fitXY"/>
 
     <Button
-        android:id="@+id/roll_btn"
+        android:id="@+id/rollBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Roll"
         android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
